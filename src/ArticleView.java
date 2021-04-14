@@ -9,13 +9,16 @@ public class ArticleView {
 
     }
 
+    // Fonction d'affichage des articles
     public void displayArticles(ArrayList<Article> articles) {
         for (Article art : articles) {
+            // Affiche de la valeur absolue des articles pour éviter d'afficher des nombres négatifs
             System.out.println(art.getName() + " : " + Math.abs(art.getPrice()));
         }
         System.out.println();
     }
 
+    // Gestion des entrées utilisateur
     public void awaitInput() {
         boolean run = true;
         while (run) {

@@ -12,6 +12,8 @@ public class Article {
         r = new Random();
     }
 
+    // Pour simuler les changements de prix on fait un aléatoire sur les 3 possibilités
+    // (augmentation, pas de changement ou baisse)
     public void iterate() {
         switch(r.nextInt(3)) {
             // Price decrease
@@ -31,8 +33,11 @@ public class Article {
         return price;
     }
 
+    // Afin de garantir que les derniéres données affichées sont les plus récentes, on passe par le presenter pour
+    // appeler le raffrachissement de la vue
     public void setPrice(float price) {
         this.price = price;
+        // Si on n'a pas de presenter, la maj de la vue n'est pas appelée
         if (ap != null) {
             ap.updateView();
         }
@@ -42,6 +47,7 @@ public class Article {
         return name;
     }
 
+    // La logique de cette fonction est analogue à celle de setPrice
     public void setName(String name) {
         this.name = name;
         if (ap != null) {
